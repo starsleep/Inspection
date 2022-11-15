@@ -50,11 +50,16 @@ int InspectionThread::Run()
 		
 		if (pDraw == nullptr || pImage == nullptr || pVideoCap == nullptr)
 		{
-			::LeaveCriticalSection(&m_csInsp); break;
+			::LeaveCriticalSection(&m_csInsp); return -1;
 		}
 		m_InspData = m_pSys->GetInspdata();
 
-		GetTemplate(m_Template);
+		BOOL bTem = GetTemplate(m_Template);
+
+		if (bTem == FALSE) 
+		{
+			::LeaveCriticalSection(&m_csInsp); return -1;
+		}
 
 		pDraw->ChangeImageType((*pImage), m_pSys->GetIamgeType(), m_InspData);		//영상 전처리
 		pDraw->ChangeImageType(m_Template, m_pSys->GetIamgeType(), m_InspData);		//Template 이미지 전처리
