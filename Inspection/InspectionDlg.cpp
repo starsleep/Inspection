@@ -214,7 +214,8 @@ void CInspectionDlg::initialization()
 	m_InspData = m_pSys->ReadRecipe();
 	
 	m_inspstate = TRUE;
-	
+	int a = 100;
+	//레시피 파일에서 읽어온 데이터를 컨트롤에 뿌려준다.
 	UpdateControl();
 
 	//vector에 포인터를 담아서 Mainsystem으로 전달
