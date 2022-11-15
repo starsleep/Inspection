@@ -214,7 +214,7 @@ void CInspectionDlg::initialization()
 	m_InspData = m_pSys->ReadRecipe();
 	
 	m_inspstate = TRUE;
-	int a = 100;
+	
 	//레시피 파일에서 읽어온 데이터를 컨트롤에 뿌려준다.
 	UpdateControl();
 
@@ -268,6 +268,7 @@ void CInspectionDlg::initialization()
 		DEFAULT_PITCH | FF_DONTCARE,  // nPitchAndFamily 
 		L"휴먼매직체"); // lpszFacename
 	
+	//해당 다이얼로그에 폰트 설정하기
 	GetDlgItem(IDC_STATIC_PASS)->SetFont(&m_Font1);
 	GetDlgItem(IDC_STATIC_NONPASS)->SetFont(&m_Font1);
 
