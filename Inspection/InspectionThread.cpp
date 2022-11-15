@@ -34,12 +34,8 @@ int InspectionThread::Run()
 		m_pSys->m_eInspQuit.SetEvent();
 		return -1;
 	}
-	ReSetCount();
 
-	CString str;
-	str.Format(L"%s\\TemplateImage.bmp", TEMPLATEIMAGESAVE_PATH);
-	String savePath = std::string(CT2CA(str));
-	
+	ReSetCount();
 
 	while(m_bThUse)
 	{
