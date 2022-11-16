@@ -44,6 +44,7 @@ int CameraThread::Run()
         if (pDraw == nullptr || pImage == nullptr || pVideoCap == nullptr)
         {
             ::LeaveCriticalSection(&m_csCam);
+            return -1;
         }
 
         pVideoCap->read(*pImage);
